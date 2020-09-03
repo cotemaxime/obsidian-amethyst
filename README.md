@@ -1,3 +1,7 @@
+![Example](screenshot.png)
+
+---
+
 ## Amethyst
 A purple/amethyst theme for [Obsidian.md](https://obsidian.md/)
 
