@@ -1,21 +1,32 @@
 /* Special Font */
 body {
-    font-family: "Gloria Hallelujah", "Dank Mono",'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "NotoColorEmoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    --default-font: 'Dank Mono', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    --font-monospace: 'Dank Mono', monospace;
+    overflow: hidden;
 }
 
-.cm-s-obsidian {
-    font-family: "Dank Mono",'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "NotoColorEmoji","Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-    font-size: 16px;
+.workspace-leaf-content[data-type="file-explorer"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
 }
 
-.markdown-preview-view code {
-    font-family: "Dank Mono",'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "NotoColorEmoji","Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-    font-size: 16px;
+.workspace-leaf-content[data-type="search"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
 }
 
-.workspace {
-    font-family: "Dank Mono",'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "NotoColorEmoji","Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-    font-size: 16px;
+.workspace-leaf-content[data-type="backlink"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
+}
+
+.workspace-leaf-content[data-type="outline"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
+}
+
+.workspace-leaf-content[data-type="starred"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
+}
+
+.workspace-leaf-content[data-type="tag"] {
+    font-family: "Quotable", "Dank Mono", 'Inter';
 }
 
 /* Scrollbar */
@@ -23,9 +34,50 @@ body {
     background-color: transparent;
 }
 
-/* App scrollbar weirdness */
-.app-container {
-    height: 99%;
+/* Fix for Quotable smaller size NO COMMIT */
+.nav-file-title, .nav-folder-title {
+    font-size: 18px;
+}
+
+.pane-clickable-item {
+    font-size: 18px;
+} 
+
+.workspace-leaf-content[data-type="search"] {
+    font-size: 18px;
+}
+
+.workspace-leaf-content[data-type="backlink"] {
+    font-size: 18px;
+}
+
+.search-result-file-title {
+    font-size: 20px;
+}
+
+.outline {
+    font-size: 20px;
+}
+
+.search-result-file-matches {
+    font-size: 18px;
+}
+/**/
+
+/* New window bar */
+.top-titlebar {
+    background-color: #3e3471;
+}
+
+.top-titlebar-text {
+    font-family: "Dank Mono";
+    font-size: 15px;
+    color: white;
+}
+
+.top-titlebar-button {
+    opacity: 0.75; 
+    color: white;
 }
 /**/
 
@@ -38,6 +90,12 @@ body {
 /**/
 /* Editor Section */
 /**/
+
+/* Front matter box */
+.frontmatter-container .frontmatter-section-label {
+    width: unset;
+}
+
 /* Line size */
 .cm-s-obsidian pre.HyperMD-header {
     line-height: 1!important;
@@ -62,6 +120,8 @@ body {
 .view-header-title {
     color: #705dcf;
     text-align: center;
+    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-size: 20px;
 }
 
 .workspace-leaf.mod-active .view-header {
@@ -125,6 +185,11 @@ span.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-head
     color: var(--text-normal);
 }
 
+/* Brighter blockquotes */
+.cm-s-obsidian pre.HyperMD-codeblock span.cm-formatting-code-block {
+    color: #705dcf!important;
+}
+
 /* Inner and Outer links */
 .cm-url {
     color: lightblue!important;
@@ -145,9 +210,16 @@ span.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-head
 }
 
 /* Highlights and Bold */
-strong {
-    font-size: larger;
+.cm-strong {
     color: var(--text-normal);
+    font-family: "Inter"!important;
+    font-weight: bold!important;
+}
+
+strong {
+    color: var(--text-normal);
+    font-family: "Inter"!important;
+    font-weight: bold!important;
 }
 
 mark {
@@ -173,29 +245,17 @@ mark {
 }
 
 /* Status bar */
-.theme-dark .status-bar-item {
-    color: white;
+.status-bar {
+    background-color: #3e3471;
 }
 
-.theme-light .status-bar-item {
-    color: black;
+.status-bar-item {
+    color: white;
 }
 
 /**/
 /* Preview section */
 /**/
-/* Centered preview */
-.markdown-preview-view
-{
-    position: relative;
-    height: 100%;
-    /*
-    border-right-width: 7rem;
-    border-left-width: 7rem;
-    border-style: solid;
-    border-color: #262140;
-    */
-}
 
 .markdown-embed-title {
     color: #705dcf;
@@ -237,7 +297,7 @@ mark {
 }
 
 /* File explorer navigation selection */
-.nav-file.is-active > .nav-file-title, .nav-file.is-active > .nav-folder-title, .nav-file.is-active > .nav-folder-collapse-indicator, .nav-folder.is-active > .nav-file-title, .nav-folder.is-active > .nav-folder-title, .nav-folder.is-active > .nav-folder-collapse-indicator {
+.nav-file-title.is-active, .nav-folder-title.is-active, body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder-title:hover {
     background-color: #3e3471;
     color: white;
 }
@@ -263,25 +323,6 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 .nav-file-title, .nav-folder-title, .nav-folder-collapse-indicator {
     color: var(--text-normal);
 }
-
-/* File explorer alternate background 
-.nav-file:nth-child(even) {
-    background-color: var(--background-primary);
-}
-
-.nav-folder:nth-child(even) {
-    background-color: var(--background-primary);
-}
-
-.nav-file:nth-child(odd) {
-    background-color: #262140;
-}
-
-.nav-folder:nth-child(odd) {
-    background-color: #262140;
-}
-
-/**/
 
 /* File explorer menu*/
 .menu-item:hover {
@@ -375,6 +416,16 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     transition: none;
 }
 
+.workspace-ribbon.mod-left {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.workspace-ribbon.mod-right {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
 /**/
 /* Settings panel Section */
 /**/
@@ -396,14 +447,14 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     border-left-color: #3e3471;
 }
 
-/* Centered editor with side border 
-.markdown-source-view {
-    position: relative;
-    height: 100%;
-    border-right-width: 7rem;
-    border-left-width: 7rem;
-    border-style: solid;
-    border-color: #262140;
+.workspace-tabs .workspace-leaf .workspace-leaf-content[data-type="markdown"] .markdown-source-view {
+    border-style: none;
+    border-color: #0000
+}
+
+.workspace-tabs .workspace-leaf .workspace-leaf-content[data-type="markdown"] .markdown-preview-view {
+    border-style: none;
+    border-color: #0000
 }
 
 /* Graph View */
@@ -411,185 +462,49 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 .graph-view.color-fill {
     color: #705dcf;
 }
+
 .graph-view.color-circle {
     color: #3e3471;
 }
+
 .graph-view.color-line {
     color:  #3e3471;
 }
+
 .graph-view.color-text {
     color: var(--text-normal);
 }
+
 .graph-view.color-fill-highlight {
     color: #3e3471;
 }
+
 .graph-view.color-line-highlight {
     color: #705dcf;
 }
-/**/
 
-/* Focus Mode 
-.cm-s-obsidian,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-link,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hmd-internal-link,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-url,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hmd-escape-backslash,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-inline-code,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > pre.CodeMirror-line.HyperMD-codeblock,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hashtag,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-builtin,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hr,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-footref,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line pre.HyperMD-footnote span.cm-hmd-footnote,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-highlight,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-highlight,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-list,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-task,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-quote,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-math,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.hmd-fold-math-placeholder {
-  color: var(--text-faint);
+/* Layout adjustment for small size */
+/* Centered editor with side border */
+@media only screen and (min-width: 800px) {
+.markdown-source-view {
+        position: relative;
+        border-right-width: 7rem;
+        border-left-width: 7rem;
+        border-style: solid;
+        border-color: #262140;
+    }
 }
 
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-highlight,
-.cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-highlight {
-  background-color: transparent;
-}
-
-.CodeMirror-activeline {
-  color: var(--text-normal);
+/* Centered preview */
+@media only screen and (min-width: 800px) {
+.view-content > div > .markdown-preview-view 
+{
+    height: 100%;
+    position: relative;
+    border-right-width: 7rem;
+    border-left-width: 7rem;
+    border-style: solid;
+    border-color: #262140;
 }
 /**/
 
-
-/* Andy Matuschak mode! V2! for 0.7.0! (so... 2.7?) */
-/* Now with my own tweaks 
-
-.mod-root.workspace-split.mod-vertical { 
-  overflow-x:auto; 
-  --header-width: 36px; 
-}
-.mod-root.workspace-split.mod-vertical > div { 
-  min-width: calc(700px + var(--header-width)); 
-  box-shadow: 0px 0px 20px 20px rgba(0,0,0,0.25);
-  position:sticky;
-  left:0;
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-8) {
-    left: calc(var(--header-width) * 0);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 1); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-7) {
-    left: calc(var(--header-width) * 1);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 1); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-6) {
-    left: calc(var(--header-width) * 2);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 2); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-5) {
-    left: calc(var(--header-width) * 3);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 3); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-4) {
-    left: calc(var(--header-width) * 4);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 4); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-3) {
-    left: calc(var(--header-width) * 5);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 5); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-2) {
-    left: calc(var(--header-width) * 6);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 6); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n-1) {
-    left: calc(var(--header-width) * 7);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 7); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n+0) {
-    left: calc(var(--header-width) * 8);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 8); 
-}
-
-.mod-root.workspace-split.mod-vertical > div:nth-child(10n+1) {
-    left: calc(var(--header-width) * 9);
-    min-width: calc(100% - var(--size));
-    --size: calc(var(--header-width) * 9); 
-}
-
-.workspace-leaf-content {
-  padding-left: var(--header-width);
-  position: relative;
-}
-
-.view-header {
-  writing-mode: vertical-lr;
-  border-right: 1px solid var(--background-secondary-alt);
-  border-left: 2px solid var(--background-secondary-alt);
-  border-top: none;
-  border-bottom: none;
-  height: auto;
-  width: var(--header-width);
-  position: absolute;
-  left:0;
-  top:0;
-  bottom:0;
-}
-
-.workspace-leaf.mod-active .view-header {
-  border-right: 2px solid var(--interactive-accent);
-  border-bottom: none;
-}
-
-.view-header-title-container {
-  height: unset;
-  padding-left: unset;
-  padding-top: 5px;
-}
-
-.view-header-title-container:after {
-  width: 100%;
-  height: 30px;
-  top:unset;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent, var(--background-secondary));
-}
-.workspace-leaf.mod-active .view-header-title-container:after {
-  background: linear-gradient(to bottom, transparent, var(--background-primary-alt));
-}
-
-.view-header-icon, .view-actions {
-  padding: 10px 5px;
-}
-.view-action {
-  margin: 8px 0;
-}
-
-.view-content {
-  height: 100%;
-}
-
-.workspace-fake-target-overlay {
-  background-color: var(--background-primary);
-}
-
-/**/
