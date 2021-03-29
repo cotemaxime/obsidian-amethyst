@@ -261,8 +261,13 @@ mark {
     color: #705dcf;
 }
 
+/* Embed  */
+.markdown-embed-link {
+    color: var(--text-accent) !important;
+}
+
 .markdown-preview-view .markdown-embed {
-    background-color: var(--background-primary-alt);
+    background-color: var(--background-primary);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -486,7 +491,7 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 /* Layout adjustment for small size */
 /* Centered editor with side border */
 @media only screen and (min-width: 800px) {
-.markdown-source-view {
+    div:not(.csv-table-wrapper)>.markdown-source-view { 
         position: relative;
         border-right-width: 7rem;
         border-left-width: 7rem;
@@ -497,14 +502,15 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 
 /* Centered preview */
 @media only screen and (min-width: 800px) {
-.view-content > div > .markdown-preview-view 
-{
-    height: 100%;
-    position: relative;
-    border-right-width: 7rem;
-    border-left-width: 7rem;
-    border-style: solid;
-    border-color: #262140;
+    .view-content > div > .markdown-preview-view 
+    {
+        height: 100%;
+        position: relative;
+        border-right-width: 7rem;
+        border-left-width: 7rem;
+        border-style: solid;
+        border-color: #262140;
+    }
 }
 /**/
 
