@@ -256,22 +256,22 @@ mark {
 /**/
 /* Preview section */
 /**/
-
+/* Embed  */
 .markdown-embed-title {
     color: #705dcf;
 }
 
-/* Embed  */
 .markdown-embed-link {
     color: var(--text-accent) !important;
 }
 
 .markdown-preview-view .markdown-embed {
-    background-color: var(--background-primary);
+    background-color: unset;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
+/* Links  */
 .markdown-preview-view .internal-link {
     color: #705dcf;
 }
