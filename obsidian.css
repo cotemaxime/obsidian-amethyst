@@ -36,31 +36,31 @@ body {
 
 /* Fix for Quotable smaller size NO COMMIT */
 .nav-file-title, .nav-folder-title {
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 .pane-clickable-item {
-    font-size: 18px;
+    font-size: 1.125em;
 } 
 
 .workspace-leaf-content[data-type="search"] {
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 .workspace-leaf-content[data-type="backlink"] {
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 .search-result-file-title {
-    font-size: 20px;
+    font-size: 1.25em;
 }
 
 .outline {
-    font-size: 20px;
+    font-size: 1.25em;
 }
 
 .search-result-file-matches {
-    font-size: 18px;
+    font-size: 1.125em;
 }
 /**/
 
@@ -71,7 +71,7 @@ body {
 
 .top-titlebar-text {
     font-family: "Dank Mono";
-    font-size: 15px;
+    font-size: 1em;
     color: white;
 }
 
@@ -121,7 +121,7 @@ body {
     color: #705dcf;
     text-align: center;
     font-family: "Quotable", "Dank Mono", 'Inter';
-    font-size: 20px;
+    font-size: 1.25em;
 }
 
 .workspace-leaf.mod-active .view-header {
