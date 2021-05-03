@@ -280,6 +280,11 @@ mark {
     color: lightblue;
 }
 
+/* Separation lines*/ 
+.markdown-preview-view hr {
+    border-color: var(--interactive-accent);
+}
+
 /**/
 /* Side panel section */
 /**/
