@@ -167,12 +167,20 @@ span.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-head
 }
 
 /* Cursor */
-.cm-fat-cursor .CodeMirror-cursor {
+.theme-dark .cm-fat-cursor .CodeMirror-cursor {
     background: #3e3471;
 }
 
-.cm-animate-fat-cursor {
+.theme-dark .cm-animate-fat-cursor {
     background-color: #3e3471;
+}
+
+.theme-light .cm-fat-cursor .CodeMirror-cursor {
+    background: #3e3471d9;
+}
+
+.theme-light .cm-animate-fat-cursor {
+    background-color: #3e3471d9;
 }
 
 /* Selection in popup ([[]] autocomplete)*/
@@ -496,25 +504,38 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 /* Layout adjustment for small size */
 /* Centered editor with side border */
 @media only screen and (min-width: 800px) {
-    div:not(.csv-table-wrapper)>.markdown-source-view { 
+    .theme-dark div:not(.csv-table-wrapper)>.markdown-source-view { 
         position: relative;
         border-right-width: 7rem;
         border-left-width: 7rem;
         border-style: solid;
         border-color: #262140;
     }
+    .theme-light div:not(.csv-table-wrapper)>.markdown-source-view { 
+        position: relative;
+        border-right-width: 7rem;
+        border-left-width: 7rem;
+        border-style: solid;
+        border-color: #3e3471d9;
+    }
 }
 
 /* Centered preview */
 @media only screen and (min-width: 800px) {
-    .view-content > div > .markdown-preview-view 
-    {
+    .theme-dark .view-content > div > .markdown-preview-view {
         height: 100%;
         position: relative;
         border-right-width: 7rem;
         border-left-width: 7rem;
         border-style: solid;
         border-color: #262140;
+    }
+    .theme-light .view-content > div > .markdown-preview-view  {
+        position: relative;
+        border-right-width: 7rem;
+        border-left-width: 7rem;
+        border-style: solid;
+        border-color: #3e3471d9;
     }
 }
 /**/
