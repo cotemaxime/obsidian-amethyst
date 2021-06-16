@@ -2,31 +2,66 @@
 body {
     --default-font: 'Dank Mono', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
     --font-monospace: 'Dank Mono', monospace;
+    --font-custom: "Quotable", "Dank Mono", 'Inter';
     overflow: hidden;
 }
 
+.theme-dark {
+    --background-select-hover: #3e3471;
+    --background-editor-border: #262140;
+    --background-statusbar:  #3e3471;
+    --background-search:  #3e3471;
+    --background-suggestion:  #3e3471;
+    --background-table-header:  #3e3471;
+    --background-cursor: #3e3471;
+    --background-selection: #3e3471!important;
+    --background-header: rgba(62, 52, 113, 0.85);
+    --background-settings: #3e3471;
+    --background-sidedock:  #3e3471!important;
+    --text-selection: rgba(112, 93, 207, 0.5);
+    --color-active-action: #8875ff;
+    --color-sidedock-hover: #7a6ae6;
+}
+
+.theme-light {
+    --background-select-hover: #705dcf;
+    --background-editor-border: #bab0e8;
+    --background-cursor: #bab0e8;
+    --background-selection: #bab0e8!important;
+    --background-statusbar:  #705dcf;
+    --background-table-header:  #705dcf;
+    --background-suggestion:  rgba(112, 93, 207, 0.75);
+    --background-search:  #705dcf;
+    --background-header: rgba(112, 93, 207, 0.85);
+    --background-settings: #705dcf;
+    --background-sidedock:  #705dcf!important;
+    --text-selection: rgba(112, 93, 207, 0.5);
+    --color-active-action: #705dcf;
+    --color-sidedock-hover: #2e3338;
+}
+
 .workspace-leaf-content[data-type="file-explorer"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 .workspace-leaf-content[data-type="search"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 .workspace-leaf-content[data-type="backlink"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 .workspace-leaf-content[data-type="outline"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 .workspace-leaf-content[data-type="starred"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 .workspace-leaf-content[data-type="tag"] {
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
 }
 
 /* Scrollbar */
@@ -34,7 +69,7 @@ body {
     background-color: transparent;
 }
 
-/* Fix for Quotable smaller size NO COMMIT */
+/* Fix for Quotable smaller size  */
 .nav-file-title, .nav-folder-title {
     font-size: 1.125em;
 }
@@ -102,16 +137,8 @@ body {
 }
 
 /* Selection */
-.theme-light {
-    --text-selection: rgba(112, 93, 207, 0.5);
-}
-
-.theme-dark {
-    --text-selection: rgba(112, 93, 207, 0.5);
-}
-
 ::selection {
-    background-color: #705dcf!important;
+    background-color: var(--background-selection);
     color: white!important;
 }
 
@@ -120,7 +147,7 @@ body {
 .view-header-title {
     color: #705dcf;
     text-align: center;
-    font-family: "Quotable", "Dank Mono", 'Inter';
+    font-family: var(--font-custom);
     font-size: 1.25em;
 }
 
@@ -167,29 +194,33 @@ span.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-head
 }
 
 /* Cursor */
-.theme-dark .cm-fat-cursor .CodeMirror-cursor {
-    background: #3e3471;
+.cm-fat-cursor .CodeMirror-cursor {
+    background: var(--background-cursor);
 }
 
-.theme-dark .cm-animate-fat-cursor {
-    background-color: #3e3471;
-}
-
-.theme-light .cm-fat-cursor .CodeMirror-cursor {
-    background: #3e3471d9;
-}
-
-.theme-light .cm-animate-fat-cursor {
-    background-color: #3e3471d9;
+.cm-animate-fat-cursor {
+    background-color: var(--background-cursor);
 }
 
 /* Selection in popup ([[]] autocomplete)*/
 .suggestion-item.is-selected {
-    background-color: #3e3471;
+    background-color: var(--background-suggestion);
     color: white;
 }
 
-.theme-light .suggestion-shortcut {
+.suggestion-item.is-selected > .search-suggest-info-text {
+    color: var(--text-on-accent);
+}
+
+.search-suggest-item.mod-group {
+    color: var(--text-normal);
+}
+
+.theme-light .suggestion-note {
+    color: currentcolor;
+}
+
+.suggestion-hotkey {
     color: var(--text-normal);
 }
 
@@ -240,7 +271,7 @@ mark {
 
 /* Tables */
 .markdown-preview-view th {
-    background-color: #3e3471;
+    background-color: var(--background-table-header);
     color: white
 }
 
@@ -254,7 +285,7 @@ mark {
 
 /* Status bar */
 .status-bar {
-    background-color: #3e3471;
+    background-color: var(--background-statusbar);
 }
 
 .status-bar-item {
@@ -293,6 +324,11 @@ mark {
     border-color: var(--interactive-accent);
 }
 
+/* Menu Icons */
+.menu-item-icon {
+    color: unset;
+}
+
 /**/
 /* Side panel section */
 /**/
@@ -314,17 +350,15 @@ mark {
     color: var(--text-normal);
 }
 
+.theme-light .workspace-tab-header {
+    color: var(--text-normal);
+}
+
+.theme-light .workspace-tab-header.is-active {
+    color: var(--text-accent);
+}
+
 /* File explorer navigation selection */
-.nav-file-title.is-active, .nav-folder-title.is-active, body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder-title:hover {
-    background-color: #3e3471;
-    color: white;
-}
-
-body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder-title:hover {
-    background-color: #3e3471;
-    color: white;
-}
-
 .nav-file-title-content, .nav-folder-title-content {
     color:unset;
 }
@@ -333,8 +367,23 @@ body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder
     color: var(--text-normal);
 }
 
-body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
-    background-color: #3e3471;
+.nav-file-title.is-active, .nav-folder-title.is-active, body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder-title:hover {
+    background-color: var(--background-select-hover);
+    color: white;
+}
+
+.nav-file-title.is-active, .nav-folder-title.is-active, .nav-file-title:hover, .nav-folder-title:hover {
+    background-color: var(--background-select-hover);
+    color: white;
+}
+
+.nav-file-title:hover, .nav-folder-title:hover {
+    background-color: var(--background-select-hover);
+    color: white;
+}
+
+.nav-file-title:hover .nav-folder-collapse-indicator, .nav-folder-title:hover .nav-folder-collapse-indicator {
+    background-color: var(--background-select-hover);
     color: white;
 }
 
@@ -344,13 +393,13 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 
 /* File explorer menu*/
 .menu-item:hover {
-    background-color: #3e3471;
+    background-color: var(--background-select-hover);
     color: white;
 }
 
 /* Backlinks Color and Text */
 .search-result-file-matched-text {
-    background-color: #3e3471;
+    background-color: var(--background-search);
     color: white;
 }
 
@@ -362,14 +411,18 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     color: var(--text-normal);
 }
 
-.search-result-file-title:hover {
-    background-color: #3e3471;
+.tree-item-self.is-clickable:hover {
+    background-color: var(--background-select-hover);
     color: white;
 }
 
 .search-result-file-match:hover {
-    background-color: #3e3471;
+    background-color: var(--background-select-hover);
     color: white;
+}
+
+.theme-light .tree-item-self {
+    color: var(--text-normal);
 }
 
 /* Folder arrow */
@@ -382,11 +435,6 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 }
 
 /* Tag Selection */
-.tag-pane-tag:hover {
-    background-color: #3e3471;
-    color: white;
-}
-
 .theme-light .tag-pane-tag-count {
     color: var(--text-normal)
 }
@@ -396,9 +444,62 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     color: #705dcf;
 }
 
+.workspace-leaf.mod-active .view-header-title {
+    color: var(--text-on-accent);
+}
+
+.workspace-leaf.mod-active .view-header-title-container:after {
+    background: unset;
+}
+
+.view-header-title-container:after {
+    background: unset;
+}
+
+.workspace-leaf.mod-active .view-header {
+    background-color: var(--background-header);
+}
+
+.workspace-leaf.mod-active .view-header-icon {
+    color: var(--text-on-accent);
+}
+
+.view-header-icon {
+    color: var(--text-normal);
+}
+
+.view-action:hover, .view-action.is-active {
+    color: var(--text-accent);
+}
+
+.view-action {
+    color: var(--text-normal);
+}
+
+.view-action.is-active {
+    color: var(--text-accent);
+}
+
+.workspace-leaf.mod-active .view-action {
+    color: var(--text-on-accent);
+}
+
+.workspace-leaf.mod-active .view-action.is-active {
+    color: var(--text-on-accent);
+}
+
+/* Sliding pane gradient */
+body.plugin-sliding-panes-rotate-header .workspace > .mod-root > .workspace-leaf.mod-active > .workspace-leaf-content > .view-header > .view-header-title-container:before {
+    background: unset!important;
+}
+
+body.plugin-sliding-panes-rotate-header .workspace > .mod-root > .workspace-leaf.mod-active > .workspace-leaf-content > .view-header > .view-header-title-container:after {
+    background: unset!important;
+}
+
 /* Ribon */
 .side-dock-ribbon {
-    background-color: #3e3471!important;
+    background-color: var(--background-sidedock);
     color: var(--text-muted)
 }
 
@@ -444,25 +545,33 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     margin-bottom: 1px;
 }
 
+.workspace-ribbon-collapse-btn {
+    color: white;
+}
+
+.workspace-ribbon.mod-left.is-collapsed {
+    background-color: var(--background-sidedock);
+}
+
+.workspace-ribbon.mod-right.is-collapsed {
+    background-color: var(--background-sidedock);
+}
+
+.side-dock-ribbon-tab:hover, .side-dock-ribbon-action:hover {
+    color: var(--color-sidedock-hover);
+}
+
 /**/
 /* Settings panel Section */
 /**/
 .vertical-tab-nav-item.is-active {
-    background-color: #3e3471;
+    background-color: var(--background-settings);
     color:white;
 }
 
 .horizontal-tab-nav-item:hover, .vertical-tab-nav-item:hover {
-    background-color: #3e3471;
+    background-color: var(--background-select-hover);
     color: white;
-}
-
-.vertical-tab-nav-item.is-active {
-    background-color: #3e3471;
-}
-
-.vertical-tab-nav-item.is-active {
-    border-left-color: #3e3471;
 }
 
 .workspace-tabs .workspace-leaf .workspace-leaf-content[data-type="markdown"] .markdown-source-view {
@@ -485,7 +594,7 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
     color: #3e3471;
 }
 
-.graph-view.color-line {
+.theme-dark .graph-view.color-line {
     color:  #3e3471;
 }
 
@@ -504,38 +613,24 @@ body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator, bod
 /* Layout adjustment for small size */
 /* Centered editor with side border */
 @media only screen and (min-width: 800px) {
-    .theme-dark div:not(.csv-table-wrapper)>.markdown-source-view { 
+    div:not(.csv-table-wrapper)>.markdown-source-view { 
         position: relative;
         border-right-width: 7rem;
         border-left-width: 7rem;
         border-style: solid;
-        border-color: #262140;
-    }
-    .theme-light div:not(.csv-table-wrapper)>.markdown-source-view { 
-        position: relative;
-        border-right-width: 7rem;
-        border-left-width: 7rem;
-        border-style: solid;
-        border-color: #3e3471d9;
+        border-color: var(--background-editor-border);
     }
 }
 
 /* Centered preview */
 @media only screen and (min-width: 800px) {
-    .theme-dark .view-content > div > .markdown-preview-view {
+    .view-content > div > .markdown-preview-view {
         height: 100%;
         position: relative;
         border-right-width: 7rem;
         border-left-width: 7rem;
         border-style: solid;
-        border-color: #262140;
-    }
-    .theme-light .view-content > div > .markdown-preview-view  {
-        position: relative;
-        border-right-width: 7rem;
-        border-left-width: 7rem;
-        border-style: solid;
-        border-color: #3e3471d9;
+        border-color: var(--background-editor-border);
     }
 }
 /**/
