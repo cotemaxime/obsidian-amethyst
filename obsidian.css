@@ -310,6 +310,11 @@ mark {
     margin-bottom: 0.5rem;
 }
 
+/* Embed search */
+.workspace-split.mod-root .search-result-file-match:hover {
+    background-color: var(--background-secondary-alt);
+}
+
 /* Links  */
 .markdown-preview-view .internal-link {
     color: #705dcf;
@@ -392,7 +397,8 @@ mark {
 }
 
 /* File explorer menu*/
-.menu-item:hover {
+
+.menu-item:hover:not(.is-disabled):not(.is-label) {
     background-color: var(--background-select-hover);
     color: white;
 }
@@ -634,4 +640,3 @@ body.plugin-sliding-panes-rotate-header .workspace > .mod-root > .workspace-leaf
     }
 }
 /**/
-
