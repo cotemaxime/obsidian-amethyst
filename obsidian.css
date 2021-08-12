@@ -142,18 +142,6 @@ body {
     color: white!important;
 }
 
-/* Title */
-/* Current main pane */
-.view-header-title {
-    color: #705dcf;
-    text-align: center;
-    font-family: var(--font-custom);
-    font-size: 1.25em;
-}
-
-.workspace-leaf.mod-active .view-header {
-    text-align: center;
-}
 /* Other pane */
 .workspace-leaf-header-title-container {
     text-align: center;
@@ -329,9 +317,19 @@ mark {
     border-color: var(--interactive-accent);
 }
 
-/* Menu Icons */
+/* Menu Items */
 .menu-item-icon {
     color: unset;
+}
+
+.menu-item.selected:not(.is-disabled):not(.is-label) {
+    background-color: var(--background-selection);
+    color: white;
+}
+
+.menu-item:hover:not(.is-disabled):not(.is-label) {
+    background-color: var(--background-selection);
+    color: white;
 }
 
 /**/
@@ -397,12 +395,6 @@ mark {
 }
 
 /* File explorer menu*/
-
-.menu-item:hover:not(.is-disabled):not(.is-label) {
-    background-color: var(--background-select-hover);
-    color: white;
-}
-
 /* Backlinks Color and Text */
 .search-result-file-matched-text {
     background-color: var(--background-search);
@@ -451,7 +443,18 @@ mark {
 }
 
 .workspace-leaf.mod-active .view-header-title {
-    color: var(--text-on-accent);
+    color: unset;
+}
+
+.view-header-title {
+    color: unset;
+    text-align: center;
+    font-family: var(--font-custom);
+    font-size: 1.25em;
+}
+
+.workspace-leaf.mod-active .view-header {
+    text-align: center;
 }
 
 .workspace-leaf.mod-active .view-header-title-container:after {
@@ -492,6 +495,15 @@ mark {
 
 .workspace-leaf.mod-active .view-action.is-active {
     color: var(--text-on-accent);
+}
+
+body.plugin-sliding-panes-rotate-header .workspace > .mod-root > .workspace-leaf.mod-active > .workspace-leaf-content > .view-header {
+    color: var(--text-on-accent);
+    background: var(--background-header);
+}
+
+body.plugin-sliding-panes-rotate-header .workspace > .mod-root > .workspace-leaf > .workspace-leaf-content > .view-header {
+    color: var(--text-accent);
 }
 
 /* Sliding pane gradient */
